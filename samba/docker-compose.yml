@@ -3,10 +3,8 @@ services:
   samba:
     image: dperson/samba
     container_name: samba
-    env_file:
-      - .env
     restart: always
-    command: '-u "${USER1};${PASS1}" -u "${USER2};${PASS2}" -s "media;/media;yes;no" -p'
+    command: '-u "user1;pass1" -u "user2;pass2" -s "media;/media;yes;no" -p'
     stdin_open: true
     tty: true
     ports:
