@@ -1,14 +1,16 @@
 version: "3"
 services:
   samba:
-    image: dperson/samba:rpi
+    image: dperson/samba
+    container_name: samba
+    env_file:
+      - .env
     restart: always
-    command: '-u "pi;password"-s "storage;/storage;yes;no"'
+    command: '-u "${USER1};${PASS1}" -u "${USER2};${PASS2}" -s "media;/media;yes;no" -p'
     stdin_open: true
     tty: true
     ports:
       - 139:130
       - 445:445
     volumes:
-      - /usr/share/zoneinfo/America/Montevideo:/etc/localtime 
-      - /mnt/storage:/storage
+      - /mnt/storage:/media
