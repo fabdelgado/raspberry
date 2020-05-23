@@ -1,0 +1,14 @@
+version: "3"
+services:
+  samba:
+    image: dperson/samba:rpi
+    restart: always
+    command: '-u "pi;password"-s "storage;/storage;yes;no"'
+    stdin_open: true
+    tty: true
+    ports:
+      - 139:130
+      - 445:445
+    volumes:
+      - /usr/share/zoneinfo/America/Montevideo:/etc/localtime 
+      - /mnt/storage:/storage
