@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+
+  jellyfin:
+    image: linuxserver/jellyfin
+    container_name: jellyfin
+    env_file:
+      - .env
+    environment:
+#      - PUID=1000
+#      - PGID=1000
+      - TZ=America/Montevideo
+      #- UMASK_SET=022 #optional
+    volumes:
+      - ${STORAGE}/jellyfin/config:/config
+      - ${MEDIA}/pelis:/data/movies
+      - /opt/vc/lib:/opt/vc/lib #optional
+    expose:
+      - 8096
+      - 8920
+    devices:
+      - /dev/dri:/dev/dri #optional
+      - /dev/vcsm:/dev/vcsm #optional
+      - /dev/vchiq:/dev/vchiq #optional
+      - /dev/video10:/dev/video10 #optional
+      - /dev/video11:/dev/video11 #optional
+      - /dev/video12:/dev/video12 #optional
+    restart: unless-stopped
+    networks:
+      lan:
+         ipv4_address: 192.168.0.5
+
+networks:
+  lan:
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: "192.168.0.0/24"
+          gateway: "192.168.0.1"
