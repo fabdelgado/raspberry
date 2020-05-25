@@ -15,6 +15,7 @@ services:
     volumes:
       - ${STORAGE}/jellyfin/config:/config
       - ${MEDIA}/pelis:/data/movies
+      - ${MEDIA}/series:/data/series
       - /opt/vc/lib:/opt/vc/lib #optional
     expose:
       - 8096
