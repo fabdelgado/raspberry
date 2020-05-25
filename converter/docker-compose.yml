@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+  duckdns:
+    image: jaymoulin/rpi-plex-video-converter
+    container_name: converter
+    volumes:
+      - ${MEDIA}:/media
+    restart: always
