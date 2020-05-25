@@ -14,8 +14,8 @@ services:
       #- UMASK_SET=022 #optional
     volumes:
       - ${STORAGE}/jellyfin/config:/config
-      - ${MEDIA}/pelis:/data/movies
-      - ${MEDIA}/series:/data/series
+      - ${MEDIA}/movies:/data/movies
+      - ${MEDIA}/shows:/data/shows
       - /opt/vc/lib:/opt/vc/lib #optional
     expose:
       - 8096
