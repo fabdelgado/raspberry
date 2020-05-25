@@ -1,6 +1,6 @@
 version: '3.3'
 services:
-  duckdns:
+  converter:
     image: jaymoulin/rpi-plex-video-converter
     container_name: converter
     volumes:
