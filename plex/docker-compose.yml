@@ -7,15 +7,7 @@ services:
       - .env
     expose:
       - 32400
-      - 1900/udp
-      - 3005
-      - 5353/udp
-      - 8324
-      - 32410/udp
-      - 32412/udp
-      - 32413/udp
-      - 32414/udp
-      - 32469/udp
+      - 33400
     volumes:
       - ${STORAGE}/plex/config:/root/Library
       - ${MEDIA}:/media
