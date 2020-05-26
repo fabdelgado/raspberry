@@ -20,16 +20,4 @@ services:
       - ${STORAGE}/plex/config:/root/Library
       - ${MEDIA}:/media
     restart: always
-    networks:
-      lan:
-         ipv4_address: 192.168.0.5
-
-networks:
-  lan:
-    driver: macvlan
-    driver_opts:
-      parent: eth0
-    ipam:
-      config:
-        - subnet: "192.168.0.0/24"
-          gateway: "192.168.0.1"
+    network_mode: "host"
