@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+  duckdns:
+    image: jaymoulin/plex
+    container_name: plex
+    expose:
+      - 32400
+      - 1900/udp
+      - 3005
+      - 5353/udp
+      - 8324
+      - 32410/udp
+      - 32412/udp
+      - 32413/udp
+      - 32414/udp
+      - 32469/udp
+    environment:
+     - ${MEDIA}:/data/media
+     - ${STORAGE}/plex:/data/media
+    restart: always
+
+networks:
+  lan:
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: "192.168.0.0/24"
+          gateway: "192.168.0.1"
