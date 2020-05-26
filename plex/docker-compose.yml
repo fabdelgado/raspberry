@@ -18,6 +18,9 @@ services:
      - ${MEDIA}:/data/media
      - ${STORAGE}/plex:/data/media
     restart: always
+    networks:
+      lan:
+         ipv4_address: 192.168.0.5
 
 networks:
   lan:
