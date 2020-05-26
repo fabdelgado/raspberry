@@ -1,6 +1,6 @@
 version: '2'
 services:
-  duckdns:
+  plex:
     image: jaymoulin/plex
     container_name: plex
     env_file:
@@ -16,10 +16,9 @@ services:
       - 32413/udp
       - 32414/udp
       - 32469/udp
-    environment:
-     - ${MEDIA}:/media
-     - ${STORAGE}/plex:/root/Library
-     - ${STORAGE}/plex/tmp:/tmp
+    volumes:
+      - ${STORAGE}/plex/config:/root/Library
+      - ${MEDIA}:/media
     restart: always
     networks:
       lan:
