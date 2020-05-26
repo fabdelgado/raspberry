@@ -16,7 +16,8 @@ services:
       - 32469/udp
     environment:
      - ${MEDIA}:/data/media
-     - ${STORAGE}/plex:/data/media
+     - ${STORAGE}/plex:/root/Library
+     - ${STORAGE}/plex/tmp:/tmp
     restart: always
     networks:
       lan:
