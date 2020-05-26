@@ -3,6 +3,8 @@ services:
   duckdns:
     image: jaymoulin/plex
     container_name: plex
+    env_file:
+      - .env
     expose:
       - 32400
       - 1900/udp
@@ -15,7 +17,7 @@ services:
       - 32414/udp
       - 32469/udp
     environment:
-     - ${MEDIA}:/data/media
+     - ${MEDIA}:/media
      - ${STORAGE}/plex:/root/Library
      - ${STORAGE}/plex/tmp:/tmp
     restart: always
