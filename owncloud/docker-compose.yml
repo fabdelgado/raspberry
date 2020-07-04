@@ -5,6 +5,8 @@ services:
   owncloud:
     image: owncloud
     restart: always
+    env_file:
+      - .env
     ports:
       - 1234:80
     volumes:
@@ -12,6 +14,8 @@ services:
       - ${STORAGE}/owncloud/apps:/var/www/html/apps
       - ${STORAGE}/owncloud/config:/var/www/html/config
       - ${STORAGE}/owncloud/data:/var/www/html/data
+    environment:
+      TZ: 'America/Montevideo'
 
   # db:
   #   image: mariadb
