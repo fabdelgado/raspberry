@@ -10,7 +10,7 @@ services:
     ports:
       - 1234:80
     volumes:
-      - ${STORAGE}/owncloud:/media/owncloud_data:/var/www/html
+      - ${STORAGE}/owncloud/media/:/var/www/html
       - ${STORAGE}/owncloud/apps:/var/www/html/apps
       - ${STORAGE}/owncloud/config:/var/www/html/config
       - ${STORAGE}/owncloud/data:/var/www/html/data
